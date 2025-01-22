@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import {
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  SafeAreaView,
+} from "react-native";
 import { add } from "./src/StringCalculator";
 
 interface ErrorInterface {
@@ -23,7 +29,7 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="Enter numbers"
@@ -33,7 +39,7 @@ const App = () => {
       <Button title="Calculate" onPress={handleCalculate} />
       {result !== null && <Text style={styles.result}>Result: {result}</Text>}
       {error && <Text style={styles.error}>{error}</Text>}
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -41,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    margin: 20,
   },
   input: {
     height: 40,
